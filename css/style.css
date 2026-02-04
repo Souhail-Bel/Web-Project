@@ -7,16 +7,17 @@ body{
 }
 aside{
     flex: 0 0 250px;
-    border-width: 2px;
+    border-width: 0px;
     /* background-image: linear-gradient( */
     /* 90deg, */
     /* rgb(119 0 255 / 39%), */
     /* rgb(0 212 255 / 25%) */
     /* ); */
     div {
-	box-shadow: 10px 5px 5px rgb(0 0 0);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 	background-color:white;
 	width: 90%;
+    border-radius: 7px
     }
 }
 main{
