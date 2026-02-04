@@ -28,6 +28,11 @@ main{
 
 }
 
+aside ul li p{
+    padding: 5px;
+    width: 80%;
+}
+
 aside ul li p:first-child{
     border-bottom:2px solid black;
     margin-bottom:0px;
@@ -38,13 +43,8 @@ aside ul li p:nth-child(2){
 }
 
 
-aside ul li p{
-    padding: 5px;
-    width: 80%;
-}
-
 /* will add an id */
-main ul li{
+main div{
     background-color: white;
     text-align:center;
     width: 150px;
