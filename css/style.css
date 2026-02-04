@@ -13,11 +13,11 @@ aside{
     /* rgb(119 0 255 / 39%), */
     /* rgb(0 212 255 / 25%) */
     /* ); */
-    div {
+    ul {
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 	background-color:white;
-	width: 90%;
-    border-radius: 7px
+	width: 80%;
+	border-radius: 7px
     }
 }
 main{
@@ -28,11 +28,17 @@ main{
 
 }
 
-aside div p:first-child{
+aside ul li p:first-child{
     border-bottom:2px solid black;
+    margin-bottom:0px;
 }
 
-aside div p{
+aside ul li p:nth-child(2){
+    margin-top:0px;
+}
+
+
+aside ul li p{
     padding: 5px;
     width: 80%;
 }
