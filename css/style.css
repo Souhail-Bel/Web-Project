@@ -1,3 +1,6 @@
+:variable{
+    --element-size:90%;
+}
 body{
     display: flex;
     min-height: 100vh;
@@ -5,14 +8,15 @@ body{
 aside{
     flex: 0 0 250px;
     border-width: 2px;
-    background-image: linear-gradient(
-    90deg,
-    rgb(119 0 255 / 39%),
-    rgb(0 212 255 / 25%)
-    );
+    /* background-image: linear-gradient( */
+    /* 90deg, */
+    /* rgb(119 0 255 / 39%), */
+    /* rgb(0 212 255 / 25%) */
+    /* ); */
     div {
-	box-shadow: 10px 5px 5px;
+	box-shadow: 10px 5px 5px rgb(0 0 0);
 	background-color:white;
+	width: 90%;
     }
 }
 main{
@@ -24,6 +28,22 @@ main{
 }
 
 aside div p:first-child{
-    padding: 5px;
     border-bottom:2px solid black;
+}
+
+aside div p{
+    padding: 5px;
+    width: 80%;
+}
+
+/* will add an id */
+main div{
+    background-color: white;
+    text-align:center;
+    width: 150px;
+    height: 20px;
+    border-radius: 15px;
+    position:absolute;
+    top:30px;
+    right:30px;
 }
