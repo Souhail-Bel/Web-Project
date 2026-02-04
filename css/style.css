@@ -1,0 +1,29 @@
+body{
+    display: flex;
+    min-height: 100vh;
+}
+aside{
+    flex: 0 0 250px;
+    border-width: 2px;
+    background-image: linear-gradient(
+    90deg,
+    rgb(119 0 255 / 39%),
+    rgb(0 212 255 / 25%)
+    );
+    div {
+	box-shadow: 10px 5px 5px;
+	background-color:white;
+    }
+}
+main{
+    flex :1;
+    /* background-image: */
+    background-image: url("https://www.turkey-visit.com/map/world/amp/world_maps.jpg");
+    background-size:cover;
+
+}
+
+aside div p:first-child{
+    padding: 5px;
+    border-bottom:2px solid black;
+}
