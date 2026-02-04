@@ -38,7 +38,7 @@ aside div p{
 }
 
 /* will add an id */
-main div{
+main ul li{
     background-color: white;
     text-align:center;
     width: 150px;
