@@ -4,6 +4,8 @@
 body{
     display: flex;
     min-height: 100vh;
+    background-color:rgb(244,244,244);
+
 }
 aside{
     flex: 0 0 250px;
@@ -13,11 +15,11 @@ aside{
     /* rgb(119 0 255 / 39%), */
     /* rgb(0 212 255 / 25%) */
     /* ); */
-    div {
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    ul {
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 	background-color:white;
-	width: 90%;
-    border-radius: 7px
+	width: 80%;
+	border-radius: 7px
     }
 }
 main{
@@ -28,14 +30,20 @@ main{
 
 }
 
-aside div p:first-child{
-    border-bottom:2px solid black;
-}
-
-aside div p{
+aside ul li p{
     padding: 5px;
     width: 80%;
 }
+
+aside ul li p:first-child{
+    border-bottom:2px solid black;
+    margin-bottom:0px;
+}
+
+aside ul li p:nth-child(2){
+    margin-top:0px;
+}
+
 
 /* will add an id */
 main div{
