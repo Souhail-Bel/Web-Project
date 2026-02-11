@@ -34,5 +34,8 @@ function addCarRoute(start, end, color) {
   routingControl.getContainer().style.display = "none";
 }
 
-addCarRoute([36.836, 10.215], [36.846, 10.225], "red");
-addCarRoute([36.826, 10.213], [36.806, 10.175], "blue");
+addCarRoute([36.836, 10.215], [33.458, 9.022], "red");
+addCarRoute([36.424, 10.093], [35.123, 10.741], "blue");
+addCarRoute([45, 10], [45, 45], "green");
+
+// TODO make a function that would attach an event listener for each line and append it to the carpooling list
