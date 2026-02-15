@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CozyPool</title>
+    <title>Carpooling</title>
+    <meta name="description" content="Find and share rides across Tunisia" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
       rel="stylesheet"
@@ -42,8 +44,13 @@
     <aside id="sidebar">
       <header class="app-header">
         <div class="brand">
-          <div class="brand-icon"><i data-lucide="car"></i></div>
-          <h1>Carpool :P</h1>
+          <div class="brand-icon">
+            <i data-lucide="car"></i>
+          </div>
+          <div class="brand-text">
+            <h1>Carpool :P</h1>
+            <span class="brand-subtitle">Share the journey</span>
+          </div>
         </div>
         <div class="user-status">
           <span class="status-dot"></span>
@@ -53,28 +60,73 @@
 
       <div class="search-container">
         <div class="input-group">
-          <label>From</label>
+          <label for="input-from">
+            <i data-lucide="map-pin" class="label-icon"></i>
+            From
+          </label>
           <div class="input-wrapper">
-            <i data-lucide="map-pin" class="icon-sm"></i>
             <input
               type="text"
               id="input-from"
               placeholder="Current Location (CUN)"
+              aria-label="Departure location"
             />
+            <button
+              class="clear-btn"
+              id="clear-from"
+              aria-label="Clear from"
+              style="display: none"
+            >
+              <i data-lucide="x"></i>
+            </button>
           </div>
         </div>
-        <div class="connector-line"></div>
+
+        <button
+          class="swap-btn"
+          id="swap-locations"
+          aria-label="Swap locations"
+        >
+          <i data-lucide="arrow-down-up"></i>
+        </button>
+
         <div class="input-group">
-          <label>To</label>
+          <label for="input-to">
+            <i data-lucide="flag" class="label-icon"></i>
+            To
+          </label>
           <div class="input-wrapper">
-            <i data-lucide="flag" class="icon-sm"></i>
             <input
               type="text"
               id="input-to"
               placeholder="e.g. Kebili, Safaqos..."
+              aria-label="Destination"
             />
+            <button
+              class="clear-btn"
+              id="clear-to"
+              aria-label="Clear to"
+              style="display: none"
+            >
+              <i data-lucide="x"></i>
+            </button>
           </div>
         </div>
+      </div>
+
+      <div class="filter-chips">
+        <button class="chip active" data-sort="all">
+          <i data-lucide="list"></i>
+          All Rides
+        </button>
+        <button class="chip" data-sort="price-low">
+          <i data-lucide="arrow-down"></i>
+          Price: Low
+        </button>
+        <button class="chip" data-sort="time-soon">
+          <i data-lucide="timer-reset"></i>
+          Time: Soonest
+        </button>
       </div>
 
       <div class="list-header">
@@ -83,10 +135,71 @@
       </div>
 
       <div id="ride-list" class="ride-list"></div>
+
+      <div class="empty-state" id="empty-state" style="display: none">
+        <i data-lucide="search-x"></i>
+        <h3>No rides found</h3>
+        <p>Try adjusting your search criteria</p>
+      </div>
     </aside>
 
     <main>
       <div id="map"></div>
+
+      <div class="map-controls">
+        <button
+          class="map-btn"
+          id="locate-btn"
+          aria-label="Center on your location"
+          title="Your location"
+        >
+          <i data-lucide="locate"></i>
+        </button>
+        <button
+          class="map-btn"
+          id="fit-bounds-btn"
+          aria-label="Show all rides"
+          title="Show all rides"
+        >
+          <i data-lucide="maximize"></i>
+        </button>
+      </div>
+
+      <div class="route-details" id="route-details" style="display: none">
+        <button
+          class="close-route"
+          id="close-route"
+          aria-label="Close route details"
+        >
+          <i data-lucide="x"></i>
+        </button>
+        <div class="route-details-content">
+          <h3 id="route-driver">Driver Name</h3>
+          <div class="route-path">
+            <span id="route-from">From</span>
+            <i data-lucide="arrow-right"></i>
+            <span id="route-to">To</span>
+          </div>
+          <div class="route-stats">
+            <div class="stat">
+              <i data-lucide="clock"></i>
+              <span id="route-duration">--</span>
+            </div>
+            <div class="stat">
+              <i data-lucide="map"></i>
+              <span id="route-distance">--</span>
+            </div>
+            <div class="stat-price">
+              <i data-lucide="coins"></i>
+              <strong id="route-price">--</strong>
+            </div>
+          </div>
+          <button class="book-btn">
+            <i data-lucide="calendar-check"></i>
+            Book
+          </button>
+        </div>
+      </div>
     </main>
 
     <script>
