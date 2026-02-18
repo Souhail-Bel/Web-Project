@@ -4,9 +4,33 @@
 }
 
 body {
+    min-height: 100vh;
+    margin: 0;
     background-color: #161616;
     font-family: 'Atyp Display', sans-serif;
+    cursor: url('../resources/mouse.png'), auto;
 }
+a:hover {
+    cursor: url('../resources/hovermouse.png'), pointer;
+}
+
+/*.cursor_follower {
+    width: 20px;
+    height: 20px;
+    background-color: #eea827; 
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none; 
+    z-index: 10000; 
+    transition: transform 0.1s ease-out; 
+    transform: translate(-50%, -50%); */
+
+
+
+
+
 header {
     display: flex;
     justify-content: space-between;
@@ -16,7 +40,6 @@ header {
 
 }
 .logo {
-    fill: #EDEDED;
     width:100px ;}
 .navbar a{
     text-decoration: none;
@@ -33,3 +56,4 @@ header {
     color: #EDEDED;
     font-weight: 450;
 }
+
