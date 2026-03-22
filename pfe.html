@@ -2,110 +2,148 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>E-Book Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.INSAT — PFE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/pfe.css">
 </head>
 <body>
 
-<div class="container">
+    <!--NAVBAR  -->
+    <nav class="navbar">
+        <div class="logo">.INSAT</div>
+        <ul class="nav-links">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Covoiturage</a></li>
+            <li class="active"><a href="#">Pfe</a></li>
+            <li><a href="#">Calcul Moyenne</a></li>
+            <li><a href="#">Document INSAT</a></li>
+        </ul>
+        <button class="btn-connect">Connect</button>
+    </nav>
 
+    <!-- PAGE -->
+    <div class="page">
 
-    <aside class="sidebar">
-        <div class="logo">
-             <span> .INSAT</span>
-        </div>
+        <!-- MAIN -->
+        <main class="main">
 
-        <nav>
-            <ul>
-                <li > Dashboard</li>
-                <li> Covoiturage</li>
-                <li class="active">  Pfe</li>
-                <li> calcul moyenne </li>
-                <li> document insat</li>
-            </ul>
-        </nav>
-    </aside>
+            <!-- Top bar -->
+            <header class="top-bar">
+                <div class="search-filter">
+                    <input type="text" placeholder="Search">
+                    <select class="filiere-select">
+                        <option value="">All branches</option>
+                        <option value="gl">Génie Logiciel</option>
+                        <option value="rt">Réseaux et Télécom</option>
+                        <option value="iia">Informatique Industrielle</option>
+                        <option value="imi">Instrumentation Industrielle</option>
+                        <option value="chimie">Chimie Industrielle</option>
+                        <option value="bio">Biologie Industrielle</option>
+                    </select>
+                </div>
+                <button class="btn-add-pfe">+ Ajouter mon PFE</button>
+            </header>
 
-    
-    <main class="main">
-
-        <!-- ll bar illi mel fouk -->
-        <header class="top-bar">
-            
-           
-            <div class="search-filter">
-            <input type="text" placeholder="Search">
-
-            <select class="filiere-select">
-            <option value="">All branches</option>
-            <option value="gl">Génie Logiciel</option>
-            <option value="rt">Réseaux et Télécom</option>
-            <option value="iia">Informatique Industrielle et Automatique</option>
-             <option value="imi">Instrumentation et Maintenance Industrielle</option>
-            <option value="chimie">Chimie Industrielle</option>
-            <option value="bio"> Biologie Industrielle</option>
-            </select>
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="active">New</button>
+                <button>Top Seen</button>
+                <button>Following</button>
+                <button>haja okhra</button>
             </div>
 
-            <div class="top-icons">
-                <img src="resources/pfe.jpg" class="avatar">
+            <!-- PFE Cards -->
+            <section class="pfes">
+
+                <div class="pfe">
+                    <div class="pfe-img-wrap">
+                        <img src="resources/pfe.jpg" alt="pfe">
+                    </div>
+                    <h4>pfe title</h4>
+                    <p>studend</p>
+                    <p>filiere</p>
+                </div>
+
+                <div class="pfe">
+                    <div class="pfe-img-wrap">
+                        <img src="resources/pfe.jpg" alt="pfe">
+                    </div>
+                    <h4>pfe title</h4>
+                    <p>studend</p>
+                    <p>filiere</p>
+                </div>
+
+                <div class="pfe">
+                    <div class="pfe-img-wrap">
+                        <img src="resources/pfe.jpg" alt="pfe">
+                    </div>
+                    <h4>pfe title</h4>
+                    <p>studend</p>
+                    <p>filiere</p>
+                </div>
+
+                <div class="pfe">
+                    <div class="pfe-img-wrap">
+                        <img src="resources/pfe.jpg" alt="pfe">
+                    </div>
+                    <h4>pfe title</h4>
+                    <p>studend</p>
+                    <p>filiere</p>
+                </div>
+
+                <div class="pfe">
+                    <div class="pfe-img-wrap">
+                        <img src="resources/pfe.jpg" alt="pfe">
+                    </div>
+                    <h4>pfe title</h4>
+                    <p>studend</p>
+                    <p>filiere</p>
+                </div>
+
+                <div class="pfe">
+                    <div class="pfe-img-wrap">
+                        <img src="resources/pfe.jpg" alt="pfe">
+                    </div>
+                    <h4>pfe title</h4>
+                    <p>studend</p>
+                    <p>filiere</p>
+                </div>
+
+                <div class="pfe">
+                    <div class="pfe-img-wrap">
+                        <img src="resources/pfe.jpg" alt="pfe">
+                    </div>
+                    <h4>pfe title</h4>
+                    <p>studend</p>
+                    <p>filiere</p>
+                </div>
+
+                <div class="pfe">
+                    <div class="pfe-img-wrap">
+                        <img src="resources/pfe.jpg" alt="pfe">
+                    </div>
+                    <h4>pfe title</h4>
+                    <p>studend</p>
+                    <p>filiere</p>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- RIGHT PANEL -->
+        <aside class="right">
+            <h3>most seen pfe</h3>
+            <div class="blog">
+                <div class="blog-img-wrap">
+                    <img src="resources/pfe.jpg" alt="most seen">
+                </div>
+                <p>pfe name + student</p>
             </div>
-        </header>
+        </aside>
 
-       
-        <div class="tabs">
-            <button class="active">New</button>
-            <button>Top Seen</button>
-            <button>Following</button>
-            <button> haja okhra</button>
-        </div>
-
-        
-        <section class="pfes">
-
-           
-            <div class="pfe">
-                <img src="resources/pfe.jpg">
-                <h4> pfe title</h4>
-                <p> studend</p>
-                <p> filiere</p>
-            </div>
-                        <div class="pfe">
-                <img src="resources/pfe.jpg">
-                <h4> pfe title</h4>
-                <p> studend</p>
-                <p> filiere</p>
-            </div>
-                        <div class="pfe">
-                <img src="resources/pfe.jpg">
-                <h4> pfe title</h4>
-                <p> studend</p>
-                <p> filiere</p>
-            </div>
-
-          
-
-        </section>
-
-    </main>
-
-    
-    <aside class="right">
-
-       
-
-
-        <h3>most seen pfe</h3>
-
-
-        <div class="blog">
-            <img src="resources/pfe.jpg">
-            <p>pfe name + student</p>
-        </div>
-
-    </aside>
-
-</div>
+    </div>
 
 </body>
 </html>
