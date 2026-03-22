@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.INSAT — Add PFE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/ajoutpfe.css">
+</head>
+<body>
+
+   
+    <nav class="navbar">
+        <div class="logo">.INSAT</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Dashboard</a></li>
+            <li><a href="map.html">Covoiturage</a></li>
+            <li class="active"><a href="pfe.html">Pfe</a></li>
+            <li><a href="">Calcul Moyenne</a></li>
+            <li><a href="">Document INSAT</a></li>
+        </ul>
+        <button class="btn-connect">Connect</button>
+    </nav>
+
+    
+    <div class="page">
+        <main class="main">
+
+            
+            <div class="form-header">
+                <a href="pfe.html" class="btn-back">← Back</a>
+                <h1>Add my PFE</h1>
+                <p class="form-subtitle">Fill in the information about your final year project</p>
+            </div>
+
+            
+            <div class="form-container">
+
+                
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-num"></span>
+                        Basic Information
+                    </h2>
+
+                    <div class="form-grid">
+
+                        <div class="field full">
+                            <label>PFE Title <span class="required"></span></label>
+                            <input type="text" placeholder="Ex: Development of a management platform...">
+                        </div>
+
+                        <div class="field full">
+                            <label>Author(s) <span class="required"></span></label>
+                            <input type="text" placeholder="Full name — separate multiple authors with a comma">
+                        </div>
+
+                        <div class="field half">
+                            <label>Academic Year <span class="required"></span></label>
+                            <input type="text" placeholder="Ex: 2024/2025">
+                        </div>
+
+                        <div class="field half">
+                            <label>Specialty / Major <span class="required"></span></label>
+                            <select>
+                                <option value="">Select...</option>
+                                <option>Software Engineering (GL)</option>
+                                <option>Networks & Telecom (RT)</option>
+                                <option>Industrial Computing (IIA)</option>
+                                <option>Industrial Instrumentation (IMI)</option>
+                                <option>Industrial Chemistry</option>
+                                <option>Industrial Biology</option>
+                            </select>
+                        </div>
+
+                        <div class="field half">
+                            <label>Institution</label>
+                            <input type="text" placeholder="Ex: INSAT" value="INSAT">
+                        </div>
+
+                        <div class="field half">
+                            <label>Supervisor(s)</label>
+                            <input type="text" placeholder="Name of supervisor(s)">
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-num"></span>
+                        Files
+                    </h2>
+
+                    <div class="form-grid">
+
+                        <div class="field full">
+                            <label>PDF Report <span class="required"></span></label>
+                            <div class="file-drop" id="pdf-drop">
+                                <div class="file-drop-icon"></div>
+                                <p>Drag and drop your PDF file here</p>
+                                <span>or</span>
+                                <label class="btn-file" for="pdf-input">Choose a file</label>
+                                <input type="file" id="pdf-input" accept=".pdf" hidden>
+                                <p class="file-hint">PDF only — max 50MB</p>
+                            </div>
+                        </div>
+
+                        <div class="field full">
+                            <label>Cover Page <span class="optional">(optional)</span></label>
+                            <div class="file-drop" id="cover-drop">
+                                <div class="file-drop-icon"></div>
+                                <p>Cover image</p>
+                                <span>or</span>
+                                <label class="btn-file" for="cover-input">Choose an image</label>
+                                <input type="file" id="cover-input" accept="image/*" hidden>
+                                <p class="file-hint">JPG, PNG — max 5MB</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-num"></span>
+                        Description
+                    </h2>
+
+                    <div class="form-grid">
+
+                        <div class="field full">
+                            <label>Abstract <span class="required"></span></label>
+                            <div class="lang-tabs">
+                                <button class="lang-tab active" data-lang="fr">Français</button>
+                                <button class="lang-tab" data-lang="en">English</button>
+                            </div>
+                            <textarea placeholder="Write a short summary of your project..." rows="5"></textarea>
+                        </div>
+
+                        <div class="field full">
+                            <label>Keywords</label>
+                            <div class="tags-input-wrap">
+                                <div class="tags-list" id="tags-list"></div>
+                                <input type="text" id="tags-input" placeholder="Type a keyword and press Enter...">
+                            </div>
+                            <p class="field-hint">Press Enter to add a tag</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-num"></span>
+                        Technical Details
+                    </h2>
+
+                    <div class="form-grid">
+
+                        <div class="field full">
+                            <label>Technologies Used</label>
+                            <div class="tags-input-wrap">
+                                <div class="tags-list" id="tech-list"></div>
+                                <input type="text" id="tech-input" placeholder="Ex: React, Spring Boot, Oracle...">
+                            </div>
+                            <p class="field-hint">Press Enter to add</p>
+                        </div>
+
+                        <div class="field half">
+                            <label>Domain</label>
+                            <select>
+                                <option value="">Select...</option>
+                                <option>Web</option>
+                                <option>Mobile</option>
+                                <option>Artificial Intelligence</option>
+                                <option>Cybersecurity</option>
+                                <option>IoT</option>
+                                <option>Cloud</option>
+                                <option>Data Science</option>
+                                <option>Embedded Systems</option>
+                                <option>Networks</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="field half">
+                            <label>Project Type</label>
+                            <select>
+                                <option value="">Select...</option>
+                                <option>Web Application</option>
+                                <option>Mobile Application</option>
+                                <option>Embedded System</option>
+                                <option>Study & Analysis</option>
+                                <option>Platform</option>
+                                <option>API / Backend</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-num"></span>
+                        Evaluation <span class="optional"></span>
+                    </h2>
+
+                    <div class="form-grid">
+
+                        <div class="field third">
+                            <label>Grade</label>
+                            <input type="number" min="0" max="20" step="0.25" placeholder="Ex: 17.5">
+                        </div>
+
+                        <div class="field third">
+                            <label>Mention</label>
+                            <select>
+                                <option value="">Select...</option>
+                                <option>Excellent</option>
+                                <option>Very Good</option>
+                                <option>Good</option>
+                                <option>Pass</option>
+                            </select>
+                        </div>
+
+                        <div class="field third">
+                            <label>Jury Members</label>
+                            <input type="text" placeholder="Jury members' names">
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div class="form-actions">
+                    <button class="btn-cancel" onclick="window.location.href='pfe.html'">Cancel</button>
+                    <button class="btn-submit">Publish PFE →</button>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function initTagsInput(inputId, listId) {
+            const input = document.getElementById(inputId);
+            const list = document.getElementById(listId);
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && this.value.trim()) {
+                    e.preventDefault();
+                    const tag = document.createElement('span');
+                    tag.classList.add('tag');
+                    tag.innerHTML = `${this.value.trim()} <button onclick="this.parentElement.remove()">×</button>`;
+                    list.appendChild(tag);
+                    this.value = '';
+                }
+            });
+        }
+
+        initTagsInput('tags-input', 'tags-list');
+        initTagsInput('tech-input', 'tech-list');
+
+        document.querySelectorAll('.lang-tab').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.lang-tab').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.file-drop').forEach(zone => {
+            zone.addEventListener('dragover', e => {
+                e.preventDefault();
+                zone.classList.add('drag-over');
+            });
+            zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+            zone.addEventListener('drop', e => {
+                e.preventDefault();
+                zone.classList.remove('drag-over');
+                const file = e.dataTransfer.files[0];
+                if (file) zone.querySelector('p').textContent = `✓ ${file.name}`;
+            });
+        });
+    </script>
+
+</body>
+</html>
