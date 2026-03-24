@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>rideSAT</title>
+    <meta name="description" content="Carpooling for INSAT students" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"
+    />
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"
+    />
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link href="css/style_cp.css" rel="stylesheet" />
+    <script defer src="js/script_cp.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="resources/logo.svg" alt="INSAT" class="nav-logo" />
+        <span class="nav-title">rideSAT</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#" class="nav-active">Covoiturage</a></li>
+        <li><a href="#">PFE</a></li>
+        <li><a href="#">Calcul Moyenne</a></li>
+        <li><a href="#">Document INSAT</a></li>
+      </ul>
+      <button class="nav-connect">Connect</button>
+    </nav>
+
+    <div class="app-body">
+      <aside id="sidebar">
+        <div class="direction-toggle">
+          <button class="dir-btn active" data-dir="all">
+            <i data-lucide="arrow-left-right"></i>
+            All
+          </button>
+          <button class="dir-btn" data-dir="to-insat">
+            <i data-lucide="arrow-right"></i>
+            To INSAT
+          </button>
+          <button class="dir-btn" data-dir="from-insat">
+            <i data-lucide="arrow-left"></i>
+            From INSAT
+          </button>
+        </div>
+
+        <div class="search-box">
+          <label>
+            <i data-lucide="search"></i>
+            <span id="search-label">City</span>
+          </label>
+          <div class="insat-label" id="insat-pill-label">↔ INSAT</div>
+          <div class="search-row">
+            <i
+              data-lucide="map-pin"
+              style="
+                width: 14px;
+                height: 14px;
+                color: var(--text-sub);
+                flex-shrink: 0;
+              "
+            ></i>
+            <input
+              type="text"
+              id="input-search"
+              placeholder="Any city…"
+              aria-label="Search city"
+            />
+            <button
+              class="clear-btn"
+              id="clear-search"
+              aria-label="Clear search"
+              style="display: none"
+            >
+              <i data-lucide="x"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <button class="chip active" data-sort="all">
+            <i data-lucide="list"></i>
+            All
+          </button>
+          <button class="chip" data-sort="price-low">
+            <i data-lucide="arrow-down"></i>
+            Cheapest
+          </button>
+          <button class="chip" data-sort="time-soon">
+            <i data-lucide="timer"></i>
+            Soonest
+          </button>
+        </div>
+
+        <div class="list-header">
+          <h2>Available rides</h2>
+          <span class="badge" id="count-badge">0</span>
+        </div>
+
+        <div id="ride-list" class="ride-list"></div>
+
+        <div class="empty-state" id="empty-state" style="display: none">
+          <i data-lucide="search-x"></i>
+          <h3>No rides found</h3>
+          <p>Try a different direction or city</p>
+        </div>
+      </aside>
+
+      <main>
+        <div id="map"></div>
+
+        <div class="map-controls">
+          <button
+            class="map-btn"
+            id="locate-btn"
+            aria-label="Center on INSAT"
+            title="Center on INSAT"
+          >
+            <i data-lucide="locate"></i>
+          </button>
+          <button
+            class="map-btn"
+            id="fit-bounds-btn"
+            aria-label="Show all rides"
+            title="Show all rides"
+          >
+            <i data-lucide="maximize"></i>
+          </button>
+        </div>
+
+        <div class="route-details" id="route-details" style="display: none">
+          <button class="close-route" id="close-route" aria-label="Close">
+            <i data-lucide="x"></i>
+          </button>
+          <button
+            class="toggle-route"
+            id="toggle-route"
+            aria-label="Toggle Details"
+          >
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="route-details-content">
+            <div class="detail-eyebrow">Driver</div>
+            <h3 id="route-driver">—</h3>
+            <div class="route-path">
+              <span id="route-from">—</span>
+              <i data-lucide="arrow-right"></i>
+              <span id="route-to">—</span>
+            </div>
+            <div class="collapsible-section">
+              <div class="route-stats">
+                <div class="stat">
+                  <i data-lucide="clock"></i>
+                  <span id="route-duration">—</span>
+                </div>
+                <div class="stat">
+                  <i data-lucide="map"></i>
+                  <span id="route-distance">—</span>
+                </div>
+                <div class="stat-price">
+                  <i data-lucide="banknote"></i>
+                  <strong id="route-price">—</strong>
+                </div>
+              </div>
+              <button class="book-btn">
+                <i data-lucide="calendar-check"></i>
+                Book this ride
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
