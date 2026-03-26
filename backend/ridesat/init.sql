@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS rides (
+    id SERIAL PRIMARY KEY,
+    driver_id INT REFERENCES users(id),
+    other_city VARCHAR(100) NOT NULL,
+    is_to_insat BOOLEAN NOT NULL,
+    price NUMERIC(5, 2) DEFAULT 0,
+    departure_time TIMESTAMP NOT NULL,
+    seats INT NOT NULL,
+    lat NUMERIC(9, 5) NOT NULL,
+    lng NUMERIC(9, 5) NOT NULL
+);
+
+TRUNCATE TABLE rides, users RESTART IDENTITY CASCADE;

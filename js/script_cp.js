@@ -18,7 +18,7 @@ const ridesData = [
   {
     driver: "Sousou",
     other: "middle of nowhere",
-    direction: "from-insat",
+    is_to_insat: false,
     price: 0,
     departure: "2026-03-24T03:33",
     seats: 1,
@@ -27,7 +27,7 @@ const ridesData = [
   {
     driver: "Linus Torvalds",
     other: "Bizerte",
-    direction: "to-insat",
+    is_to_insat: true,
     price: 8,
     departure: "2026-03-25T07:45",
     seats: 3,
@@ -36,7 +36,7 @@ const ridesData = [
   {
     driver: "Ahmed Mohsen",
     other: "Sousse",
-    direction: "from-insat",
+    is_to_insat: false,
     price: 15,
     departure: "2026-03-26T18:00",
     seats: 2,
@@ -45,7 +45,7 @@ const ridesData = [
   {
     driver: "Ada Lovelace",
     other: "Nabeul",
-    direction: "to-insat",
+    is_to_insat: true,
     price: 12,
     departure: "2026-04-20T07:00",
     seats: 2,
@@ -54,7 +54,7 @@ const ridesData = [
   {
     driver: "Khammar Hbibiii",
     other: "Hencha",
-    direction: "to-insat",
+    is_to_insat: true,
     price: 5,
     departure: "2026-06-06T08:15",
     seats: 1,
@@ -63,7 +63,7 @@ const ridesData = [
   {
     driver: "Grace Aschcroft",
     other: "Sfax",
-    direction: "from-insat",
+    is_to_insat: false,
     price: 25,
     departure: "2026-04-12T17:30",
     seats: 3,
@@ -72,7 +72,7 @@ const ridesData = [
   {
     driver: "Leon S. Kennedy",
     other: "Zaghouan",
-    direction: "from-insat",
+    is_to_insat: false,
     price: 0.1,
     departure: "2026-09-26T00:07",
     seats: 100,
@@ -81,7 +81,7 @@ const ridesData = [
   {
     driver: "Walter White",
     other: "Kairouan",
-    direction: "to-insat",
+    is_to_insat: true,
     price: 6.9,
     departure: "2027-01-01T04:20",
     seats: 2,
@@ -90,7 +90,7 @@ const ridesData = [
   {
     driver: "Kh Tlili",
     other: "Ariana",
-    direction: "to-insat",
+    is_to_insat: true,
     price: 1,
     departure: "2026-03-24T08:00",
     seats: 3,
@@ -99,7 +99,7 @@ const ridesData = [
   {
     driver: "nubmer one",
     other: "Ben Arous",
-    direction: "from-insat",
+    is_to_insat: false,
     price: 3,
     departure: "2026-03-21T17:17",
     seats: 2,
@@ -108,7 +108,7 @@ const ridesData = [
   {
     driver: "Napoleon Bonaparte",
     other: "Manouba",
-    direction: "to-insat",
+    is_to_insat: true,
     price: 20,
     departure: "1800-01-01T08:30",
     seats: 1,
@@ -220,7 +220,8 @@ function renderList(searchTerm = "") {
 
   let filtered = ridesData.filter((r) => {
     const matchDir =
-      currentDirection === "all" || r.direction === currentDirection;
+      currentDirection === "all" ||
+      (r.is_to_insat ? "to-insat" : "from-insat") === currentDirection;
     const matchSearch = r.other
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
@@ -247,7 +248,7 @@ function renderList(searchTerm = "") {
   list.style.display = "flex";
 
   filtered.forEach((ride, index) => {
-    const isFromINSAT = ride.direction === "from-insat";
+    const isFromINSAT = !ride.is_to_insat;
     const fromLabel = isFromINSAT ? "INSAT" : ride.other;
     const toLabel = isFromINSAT ? ride.other : "INSAT";
     const dirLabel = isFromINSAT ? "Leaving INSAT" : "Heading to INSAT";
@@ -393,7 +394,7 @@ function showRoute(coords, cardElement, rideData) {
 
 function updateRouteDetails(ride, route) {
   const panel = document.getElementById("route-details");
-  const isFromINSAT = ride.direction === "from-insat";
+  const isFromINSAT = !ride.is_to_insat;
 
   document.getElementById("route-driver").textContent = ride.driver;
   document.getElementById("route-from").textContent = isFromINSAT
