@@ -1,0 +1,74 @@
+/*hero section*/
+.hero {
+    text-align: center;
+    padding: 60px 20px 20px;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem); 
+    font-weight: 600;
+    color: #EDEDED;
+    margin: 0 0 24px;
+}
+
+.hero-btn {
+    text-decoration: none;
+    color: #161616;
+    background-color: #EDEDED;
+    padding: 10px 28px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+
+
+
+/*orbit section*/
+.axe-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 45px 20px;
+    min-height: 600px;
+}
+
+.orbit-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 500px;
+}
+
+.axe-center {
+    position: absolute;
+    width: 750px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.orbit-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.orbit-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;        /* ✅ adjust to match your png size */
+    height: auto;
+    margin-top: -70px;
+    margin-left: -110px;
+    will-change: transform;
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+
+.orbit-item:hover {
+    filter: brightness(1.2);  /* ✅ subtle highlight on hover */
+}

@@ -15,3 +15,5 @@
         <a href="login.php" class="connect-btn">Connect</a>
     </div>
 </header>
+<img src="resources/brushLigne.png" alt="" class="header-line">
+<button class="theme-toggle">◑</button>

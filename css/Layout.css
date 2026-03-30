@@ -1,5 +1,4 @@
 /*Fonts + Cursor : */
-
 @font-face {
     font-family: 'Atyp Display';
     src: url(/Fonts/) format("truetype");
@@ -78,6 +77,27 @@ header {
 .connect-btn:hover {
     opacity: 0.8;
     cursor: url('../resources/hovermouse.png'), pointer;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    background: #373737;
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 30%;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.header-line {
+    width: clamp(280px, 50%, 700px);
+    display: block;
+    margin: 0 auto;
 }
 
 
