@@ -1,6 +1,8 @@
+/*Fonts + Cursor : */
+
 @font-face {
     font-family: 'Atyp Display';
-    src: url(Fonts/) format("truetype");
+    src: url(/Fonts/) format("truetype");
 }
 
 body {
@@ -14,22 +16,7 @@ a:hover {
     cursor: url('../resources/hovermouse.png'), pointer;
 }
 
-/*.cursor_follower {
-    width: 20px;
-    height: 20px;
-    background-color: #eea827; 
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none; 
-    z-index: 10000; 
-    transition: transform 0.1s ease-out; 
-    transform: translate(-50%, -50%); */
-
-
-
-
+/*Navbar*/
 
 header {
     display: flex;
@@ -41,19 +28,85 @@ header {
 }
 .logo {
     width:100px ;}
-.navbar a{
+
+.navbar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navlinks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+}
+
+.navlinks a{
     text-decoration: none;
     color: #EDEDED;
     font-size: 25px;
     font-weight: 200;
     padding: 20px;
 }
-.navbar a:hover {
+.navlinks a:hover {
     color: #EDEDED;
     font-weight: 450;
 }
-.navbar a.active {
+.navlinks a.active {
     color: #EDEDED;
     font-weight: 450;
 }
 
+.header-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.connect-btn {
+    text-decoration: none;
+    color: #161616;
+    background-color: #EDEDED;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: opacity 0.2s;}
+
+.connect-btn:hover {
+    opacity: 0.8;
+    cursor: url('../resources/hovermouse.png'), pointer;
+}
+
+
+/* Responsive Design */
+@media (max-width: 850px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logo {
+        margin-right: 0;
+    }
+
+    .navbar {
+        position: static;
+        transform: none;
+    }
+
+    .navlinks {
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+    .header-right {
+        margin-left: 0;
+    }
+
+}
