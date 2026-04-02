@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<title>Momentary</title>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<script src="selection.js" defer></script>
+	</head><body>
+		<header>INSAT Grade Calculator</header>
+		<h3><i>Predict your average based on aquired or estimated grades</i></h3>
+		<hr class="hr">
+		<fieldset>
+			<legend>Start by choosing your major:</legend>
+			Study Year: <select name="Study Year" id="StudyYear" onclick="updateSelection()">
+				<option value="none">Select Year First</option>
+				<option value="1">1st</option>
+				<option value="2">2nd</option>
+				<option value="3">3rd</option>
+				<option value="4">4th</option>
+				<option value="5">5th</option>
+			</select>
+			Study Field: <select name="Study Field" id="StudyField">
+				<option value="none">Select Year First</option>
+			</select>
+			<button class="load" onclick="load()">Load Subjects</button>
+		</fieldset>
+		<div id="showing">Currently showing: GL2</div>
+		<fieldset class="subjects">
+            <legend>Semester 1 :</legend>
+            <div class="grid-container">
+				<div class="grid-container">
+    
+    			<div></div> 
+
+				<div class="header-row">
+					<span class="header-title">DS</span>
+					<span class="header-title">Examen</span>
+					<span class="header-title">TP</span>
+				</div>
+                <label>Architecture Des Ordinateurs:</label>
+				<div class="input-group">
+                <input type="number" name="ADODS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="ADOEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+				<label>Anglais:</label>
+				<div class="input-group">
+                <input type="number" name="AnglaisDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="AnglaisEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+                <label>Bases de Données:</label>
+				<div class="input-group">
+                <input type="number" name="BDDDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="BDDEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="BDDTP" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+                </div>
+				
+				<label>Français:</label>
+				<div class="input-group">
+				<input type="number" name="FrançaisDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="FrançaisEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+			    </div>
+				
+				<label>Gestion:</label>
+				<div class="input-group">
+				<input type="number" name="GestionDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="GestionEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+
+				<label>Programmation Orientée Objet:</label>
+				<div class="input-group">
+				<input type="number" name="POODS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="POOEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="BDDTP" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+
+				<label>Probabilités et Statistiques:</label>
+				<div class="input-group">
+				<input type="number" name="ProbaDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="ProbaEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+
+				<label>Mathématiques du Signal:</label>
+				<div class="input-group">
+				<input type="number" name="MDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="MEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+
+				<label>Techniques de Transmission:</label>
+				<div class="input-group">
+				<input type="number" name="TXDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="TXEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+                <label>Systèmes d'Exploitation:</label>
+				<div class="input-group">
+				<input type="number" name="SEDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="SEEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+				<label>C++:</label>
+				
+				<div class="input-group">
+				<input type="number" name="CPPEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false" style="margin-left: 122.5px;">
+				<input type="number" name="CPPTP" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+                <label>Python:</label>
+				
+				<div class="input-group">
+				<input type="number" name="PythonEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false" style="margin-left: 122.5px;">
+				<input type="number" name="PythonTP" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+            </fieldset>
+			<fieldset style="margin-top: 20px;">
+				<legend><i>With these grades, you shall obtain an average of:</i></legend>
+				<div style="text-align: center; font-size: 32px; font-weight: bold; margin-bottom: 0; font-family:monospace" id="average">0.00</div>
+			</fieldset>
+			<fieldset class="subjects">
+            <legend>Semester 2 :</legend>
+            <div class="grid-container">
+				<div class="grid-container">
+    
+    			<div></div> 
+
+				<div class="header-row">
+					<span class="header-title">DS</span>
+					<span class="header-title">Examen</span>
+					<span class="header-title">TP</span>
+				</div>
+                <label>Algèbre:</label>
+				<div class="input-group">
+                <input type="number" name="AlgebreDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="AlgebreEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+				<label>Analyse:</label>
+				<div class="input-group">
+                <input type="number" name="AnalyseDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="AnalyseEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+                <label>Architecture des Réseaux:</label>
+				<div class="input-group">
+                <input type="number" name="RéseauxDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="RéseauxEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="RéseauxTP" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+                </div>
+				<label>Anglais:</label>
+				<div class="input-group">
+				<input type="number" name="AnglaisDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="AnglaisEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+				<label>Comptabilité:</label>
+				<div class="input-group">
+				<input type="number" name="ComptaDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="ComptaEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+			    </div>
+				
+				<label>Conception des Systèmes d'Information:</label>
+				<div class="input-group">
+				<input type="number" name="ConceptionDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="ConceptionEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="ConceptionTP" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+                </div>
+                <label>Droit:</label>
+				<div class="input-group">
+				<input type="number" name="DroitDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="DroitEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+			    </div>
+								<label>Systèmes de Gestion de Bases de Données:</label>
+				<div class="input-group">
+				<input type="number" name="SGBDDS" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="SGBDEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				<input type="number" name="SGBDTP" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+				<label>Java:</label>
+				<div class="input-group">
+				<input type="number" name="JavaEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false" style="margin-left: 122.5px;">
+				<input type="number" name="JavaTP" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+
+				<label>WEB:</label>
+				<div class="input-group">
+				<input type="number" name="WEBEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false" style="margin-left: 122.5px;">
+				<input type="number" name="WEBTP" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+
+				
+
+				<label>Unix:</label>
+				<div class="input-group">
+				<input type="number" name="UnixEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false" style="margin-left: 122.5px;">
+				<input type="number" name="UnixTP" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+
+				<label>Applications Réparties:</label>
+				
+				<div class="input-group">
+				<input type="number" name="ApplicationsRépartiesEx" class="matiere" min="0" max="20" step="0.25" onkeydown="return false" style="margin-left: 122.5px;">
+				<input type="number" name="ApplicationsRépartiesTP" class="matiere" min="0" max="20" step="0.25" onkeydown="return false">
+				</div>
+            </fieldset>
+			<fieldset style="margin-top: 20px;">
+				<legend><i>With these grades, you shall obtain an average of:</i></legend>
+				<div style="text-align: center; font-size: 32px; font-weight: bold; margin-bottom: 0; font-family:monospace" id="average">0.00</div>
+			</fieldset>
+			<fieldset class="bigfield">
+			<legend>And with these grades, you shall obtain an average for the year, of:</legend>
+			<div style="text-align: center; font-size: 32px; font-weight: bold; margin-bottom: 0; font-family:monospace; font-size:36px;" id="year-average">0.00</div>
+			</fieldset>
+	</body>
+</html>
