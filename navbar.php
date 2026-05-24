@@ -4,16 +4,14 @@
     <nav class="navbar">
         <ul class="navlinks">
             <li><a href="Home.php" class="<?= $current === 'Home.php' ? 'active' : '' ?>">Home</a></li>
-            <li><a href="PFE.php" class="<?= $current === 'PFE.php' ? 'active' : '' ?>">PFE</a></li>
-            <li><a href="PFE.php" class="<?= $current === 'PFE.php' ? 'active' : '' ?>">GPA</a></li>
-            <li><a href="PFE.php" class="<?= $current === 'PFE.php' ? 'active' : '' ?>">Resources</a></li>
-            <li><a href="PFE.php" class="<?= $current === 'PFE.php' ? 'active' : '' ?>">Carpooling</a></li>
+            <li><a href="Blog.php" class="<?= $current === 'PFE.php' ? 'active' : '' ?>">Blog</a></li>
+            <li><a href="Examens.php" class="<?= $current === 'PFE.php' ? 'active' : '' ?>">Examens</a></li>
+            <li><a href="Reclamation.php" class="<?= $current === 'PFE.php' ? 'active' : '' ?>">Reclamation</a></li>
         </ul>
         </ul>
     </nav>
     <div class="header-right">
-        <a href="login.php" class="connect-btn">Connect</a>
+        <a href="login.php" class="connect-btn">Connecter</a>
     </div>
 </header>
 <img src="resources/brushLigne.png" alt="" class="header-line">
-<button class="theme-toggle">◑</button>
